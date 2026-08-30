@@ -20,16 +20,16 @@ import {
 
 const SAMPLE_PROMPTS = [
   {
-    title: 'Customer Support Triage',
-    prompt: 'Ingest customer support emails from Gmail, analyze urgency and sentiment using Gemini, auto-reply acknowledging receipt, and post urgent alerts to Slack.',
+    title: 'Hostel Maintenance',
+    prompt: 'A student reports poor water supply in the hostel. Route it to maintenance, assign priority, update the student on progress, and escalate if unresolved in 48 hours.',
   },
   {
-    title: 'Invoice Processing & Sync',
-    prompt: 'Receive invoice uploads via Webhook, extract vendor details and amount using AI agent, log invoice row to Google Sheets, and notify Discord finance channel.',
+    title: 'Classroom Issue',
+    prompt: 'A classroom projector is not working. Log the complaint, assign it to the ICT department, and track repair updates until resolved.',
   },
   {
-    title: 'Executive Outreach Digest',
-    prompt: 'Draft an executive briefing from weekly updates, deliver via Gmail to stakeholders, and post summary link in Slack #announcements.',
+    title: 'Campus Wi-Fi Problem',
+    prompt: 'Wi-Fi drops frequently in the library. Open the complaint, classify it as infrastructure, assign the IT team, and update status as work progresses.',
   },
 ];
 
@@ -47,7 +47,7 @@ export default function AIWorkflowBuilderPage() {
   const handleGenerate = async (targetPrompt) => {
     const activePrompt = targetPrompt || prompt;
     if (!activePrompt || activePrompt.trim() === '') {
-      setError('Please provide an automation description prompt.');
+      setError('Please describe the complaint or issue to log.');
       return;
     }
 
@@ -101,7 +101,7 @@ export default function AIWorkflowBuilderPage() {
               </div>
               <div>
                 <h1 className="text-xs font-bold uppercase tracking-wider text-slate-200">
-                  AI Prompt-To-Workflow Studio
+                  Complaint Intake Form
                 </h1>
                 {engineUsed && (
                   <span className="text-[10px] text-emerald-400 font-mono">Engine: {engineUsed}</span>
@@ -129,10 +129,9 @@ export default function AIWorkflowBuilderPage() {
             <div className="w-96 bg-slate-950/90 border-r border-slate-800 p-5 flex flex-col justify-between shrink-0 overflow-y-auto space-y-6">
               <div className="space-y-4">
                 <div>
-                  <h2 className="text-sm font-bold text-white tracking-tight">Describe Your Automation</h2>
+                  <h2 className="text-sm font-bold text-white tracking-tight">Describe the Issue</h2>
                   <p className="text-xs text-slate-400 mt-1 leading-relaxed">
-                    Write in natural language what operations should trigger, what AI decisions to make, and what
-                    integrations to notify.
+                    Add the complaint details, issue type, urgency, and the department that should handle it.
                   </p>
                 </div>
 
@@ -147,7 +146,7 @@ export default function AIWorkflowBuilderPage() {
                     rows={5}
                     value={prompt}
                     onChange={(e) => setPrompt(e.target.value)}
-                    placeholder="e.g. When a support ticket comes in, analyze urgency, auto-reply with Gmail, and alert on Discord..."
+                    placeholder="e.g. Hostel Wi-Fi is failing in Block C, urgent fix needed, assign to IT support..."
                     className="w-full p-3 rounded-xl bg-slate-900 border border-slate-700/80 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-indigo-500 leading-relaxed resize-none shadow-inner"
                   />
 
@@ -158,11 +157,11 @@ export default function AIWorkflowBuilderPage() {
                   >
                     {isGenerating ? (
                       <>
-                        <Loader2 className="w-4 h-4 animate-spin" /> Synthesizing Workflow Graph...
+                        <Loader2 className="w-4 h-4 animate-spin" /> Logging complaint...
                       </>
                     ) : (
                       <>
-                        <Wand2 className="w-4 h-4" /> Generate Visual Workflow
+                        <Wand2 className="w-4 h-4" /> Submit Complaint
                       </>
                     )}
                   </button>
@@ -171,7 +170,7 @@ export default function AIWorkflowBuilderPage() {
                 {/* Sample Prompts */}
                 <div className="space-y-2 pt-2">
                   <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">
-                    Quick Sample Blueprints:
+                    Quick Sample Complaints:
                   </span>
                   <div className="space-y-2">
                     {SAMPLE_PROMPTS.map((item, idx) => (
@@ -198,10 +197,10 @@ export default function AIWorkflowBuilderPage() {
               <div className="p-3 rounded-xl bg-slate-900/40 border border-slate-800 text-[11px] text-slate-400 space-y-1">
                 <div className="font-semibold text-slate-300 flex items-center gap-1.5">
                   <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
-                  Deterministic & AI Hybrid
+                  Campus issue routing
                 </div>
                 <p className="text-[10px] text-slate-500 leading-snug">
-                  Supports OpenRouter (Claude 3.5 Sonnet), Gemini, and an offline rule-based generator.
+                  Routes issues to the relevant department and keeps status updates visible to students and staff.
                 </p>
               </div>
             </div>
@@ -214,9 +213,9 @@ export default function AIWorkflowBuilderPage() {
                     <Sparkles className="w-8 h-8 text-indigo-400 animate-pulse" />
                   </div>
                   <div className="space-y-1">
-                    <h3 className="text-base font-bold text-slate-300">Awaiting Automation Prompt</h3>
+                    <h3 className="text-base font-bold text-slate-300">Awaiting complaint details</h3>
                     <p className="text-xs text-slate-500 max-w-sm">
-                      Type your automation description on the left or select a blueprint to see the visual DAG materialize.
+                      Describe the issue on the left or choose a common campus complaint to begin processing it.
                     </p>
                   </div>
                 </div>
@@ -225,8 +224,8 @@ export default function AIWorkflowBuilderPage() {
                   {/* Generated Workflow Info Header Overlay */}
                   <div className="absolute top-4 left-4 z-10 p-3.5 rounded-2xl bg-slate-950/90 border border-slate-800 backdrop-blur-md shadow-2xl space-y-1 max-w-md">
                     <div className="flex items-center gap-2">
-                      <span className="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
-                        Generated Graph
+                      <span className="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                        Complaint Draft
                       </span>
                       <span className="text-xs font-bold text-slate-200 truncate">{generatedWorkflow?.name}</span>
                     </div>

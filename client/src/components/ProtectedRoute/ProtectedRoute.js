@@ -26,7 +26,7 @@ export default function ProtectedRoute({ children, adminOnly = false }) {
           <div className="absolute w-12 h-12 rounded-full border-2 border-indigo-500/20 animate-ping"></div>
           <Loader2 className="w-8 h-8 text-indigo-400 animate-spin" />
         </div>
-        <p className="text-sm font-medium tracking-wide text-slate-400">Authenticating Operator Session...</p>
+        <p className="text-sm font-medium tracking-wide text-slate-400">Authenticating campus session...</p>
       </div>
     );
   }

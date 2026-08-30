@@ -28,13 +28,13 @@ export default function LoginPage() {
     }
   };
 
-  const handleQuickDemoFill = (role = 'operator') => {
+  const handleQuickDemoFill = (role = 'student') => {
     if (role === 'admin') {
-      setEmail('admin@agentflow.ai');
-      setPassword('Password123!');
+      setEmail('admin@college.edu');
+      setPassword('admin123');
     } else {
-      setEmail('operator@agentflow.ai');
-      setPassword('Password123!');
+      setEmail('student@college.edu');
+      setPassword('student123');
     }
     setFormError(null);
   };
@@ -48,15 +48,15 @@ export default function LoginPage() {
         {/* Header */}
         <div className="text-center space-y-2">
           <Link href="/" className="inline-flex items-center gap-2 group mb-2">
-            <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-400 p-[1px] shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform">
+            <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-emerald-600 via-teal-500 to-cyan-400 p-[1px] shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform">
               <div className="w-full h-full bg-slate-950 rounded-[15px] flex items-center justify-center">
-                <Cpu className="w-5 h-5 text-indigo-400" />
+                <Cpu className="w-5 h-5 text-emerald-400" />
               </div>
             </div>
-            <span className="font-extrabold text-xl tracking-tight text-white">Agentflow_AI</span>
+            <span className="font-extrabold text-xl tracking-tight text-white">College Complaint Desk</span>
           </Link>
-          <h2 className="text-2xl font-bold text-white tracking-tight">Operator Authentication</h2>
-          <p className="text-xs text-slate-400">Sign in to manage visual DAGs and monitor autonomous agent chains.</p>
+          <h2 className="text-2xl font-bold text-white tracking-tight">Campus Portal Login</h2>
+          <p className="text-xs text-slate-400">Access your student or admin dashboard for complaint management.</p>
         </div>
 
         {/* Card */}
@@ -69,14 +69,14 @@ export default function LoginPage() {
 
           <form onSubmit={handleSubmit} className="space-y-4 text-xs">
             <div className="space-y-1.5">
-              <label className="text-[11px] font-semibold text-slate-300">Operator Email</label>
+              <label className="text-[11px] font-semibold text-slate-300">College Email</label>
               <div className="relative">
                 <Mail className="w-4 h-4 absolute left-3 top-3 text-slate-500" />
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="operator@agentflow.ai"
+                  placeholder="student@college.edu"
                   className="w-full pl-9 pr-3 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-indigo-500 text-xs"
                 />
               </div>
@@ -99,7 +99,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-3 rounded-xl text-xs font-bold bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white shadow-lg shadow-indigo-600/30 transition-all border border-indigo-400/20 active:scale-95 flex items-center justify-center gap-2 disabled:opacity-50"
+              className="w-full py-3 rounded-xl text-xs font-bold bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-lg shadow-emerald-600/30 transition-all border border-emerald-400/20 active:scale-95 flex items-center justify-center gap-2 disabled:opacity-50"
             >
               {isLoading ? (
                 <>
@@ -107,7 +107,7 @@ export default function LoginPage() {
                 </>
               ) : (
                 <>
-                  Sign In to Console <ArrowRight className="w-4 h-4" />
+                  Sign In to Portal <ArrowRight className="w-4 h-4" />
                 </>
               )}
             </button>
@@ -116,15 +116,15 @@ export default function LoginPage() {
           {/* Demo Quick Fill Helper */}
           <div className="pt-4 border-t border-slate-800 space-y-2">
             <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider block text-center">
-              Quick Demo Logins (Pre-Seeded)
+              Quick Demo Accounts
             </span>
             <div className="grid grid-cols-2 gap-2">
               <button
                 type="button"
-                onClick={() => handleQuickDemoFill('operator')}
+                onClick={() => handleQuickDemoFill('student')}
                 className="py-1.5 px-2 rounded-lg bg-slate-950 border border-slate-800 hover:border-slate-600 text-[11px] text-slate-300 hover:text-white transition-all flex items-center justify-center gap-1.5"
               >
-                <Key className="w-3 h-3 text-indigo-400" /> Operator Demo
+                <Key className="w-3 h-3 text-emerald-400" /> Student Demo
               </button>
               <button
                 type="button"
@@ -139,9 +139,9 @@ export default function LoginPage() {
 
         {/* Footer link */}
         <p className="text-center text-xs text-slate-400">
-          Need an operator account?{' '}
-          <Link href="/register" className="font-semibold text-indigo-400 hover:text-indigo-300 hover:underline">
-            Register new operator &rarr;
+          Need a campus account?{' '}
+          <Link href="/register" className="font-semibold text-emerald-400 hover:text-emerald-300 hover:underline">
+            Register new account &rarr;
           </Link>
         </p>
       </div>

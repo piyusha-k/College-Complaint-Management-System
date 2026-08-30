@@ -84,25 +84,25 @@ export default function WorkflowsListPage() {
 
   return (
     <ProtectedRoute>
-      <AppShell breadcrumbs={[{ label: 'Workflows Directory' }]}>
+<AppShell breadcrumbs={[{ label: 'Complaint Directory' }]}> 
         <div className="p-6 lg:p-8 space-y-6 max-w-7xl mx-auto">
           {/* Header */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
               <h1 className="text-2xl font-extrabold text-white tracking-tight flex items-center gap-2.5">
-                <GitFork className="w-6 h-6 text-indigo-400" /> Automated Workflows
+                <GitFork className="w-6 h-6 text-emerald-400" /> Complaint Register
               </h1>
               <p className="text-xs text-slate-400 mt-1">
-                Visual DAG workflows powered by multi-agent reasoning and third-party integrations.
+                Track, review, assign, and resolve issues raised by students across the campus.
               </p>
             </div>
 
             <div className="flex items-center gap-3">
               <Link
                 href="/workflows/builder"
-                className="px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white shadow-lg shadow-indigo-600/30 transition-all border border-indigo-400/20 flex items-center gap-2 active:scale-95"
+                className="px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-lg shadow-emerald-600/30 transition-all border border-emerald-400/20 flex items-center gap-2 active:scale-95"
               >
-                <Sparkles className="w-3.5 h-3.5" /> AI Workflow Builder
+                <Sparkles className="w-3.5 h-3.5" /> New Complaint
               </Link>
             </div>
           </div>
@@ -115,7 +115,7 @@ export default function WorkflowsListPage() {
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Search workflows by name or tag..."
+                placeholder="Search complaints by title or category..."
                 className="w-full pl-9 pr-3 py-2 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-indigo-500"
               />
             </form>
@@ -144,16 +144,15 @@ export default function WorkflowsListPage() {
           ) : workflows.length === 0 ? (
             <div className="p-16 rounded-2xl bg-slate-900/40 border border-slate-800 text-center space-y-4">
               <GitFork className="w-10 h-10 text-slate-600 mx-auto" />
-              <h3 className="text-base font-bold text-slate-300">No workflows found</h3>
+              <h3 className="text-base font-bold text-slate-300">No complaints found</h3>
               <p className="text-xs text-slate-500 max-w-sm mx-auto">
-                Create a workflow manually or describe an automation in the AI Builder to generate a complete visual
-                graph in seconds.
+                Submit a student complaint to begin tracking issue resolution and department assignment.
               </p>
               <Link
                 href="/workflows/builder"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold"
               >
-                <Sparkles className="w-3.5 h-3.5" /> Launch AI Builder
+                <Sparkles className="w-3.5 h-3.5" /> Submit Complaint
               </Link>
             </div>
           ) : (

@@ -45,20 +45,20 @@ export default function SettingsPage() {
           {/* Header */}
           <div>
             <h1 className="text-2xl font-extrabold text-white tracking-tight flex items-center gap-2.5">
-              <Settings className="w-6 h-6 text-indigo-400" /> Platform & Security Settings
+              <Settings className="w-6 h-6 text-emerald-400" /> Campus & Security Settings
             </h1>
             <p className="text-slate-400 mt-1">
-              Manage operator credentials, orchestrator security configurations, and infrastructure health.
+              Manage user access, complaint workflows, and support system health.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Operator Profile Card */}
+            {/* User Profile Card */}
             <div className="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-4 shadow-xl">
               <div className="flex items-center gap-2 pb-3 border-b border-slate-800">
-                <User className="w-4 h-4 text-indigo-400" />
+                <User className="w-4 h-4 text-emerald-400" />
                 <h2 className="text-xs font-bold uppercase tracking-wider text-slate-200">
-                  Operator Identity
+                  User Identity
                 </h2>
               </div>
 
@@ -66,24 +66,24 @@ export default function SettingsPage() {
                 <div>
                   <label className="text-[11px] font-semibold text-slate-400">Full Name</label>
                   <div className="mt-1 p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-200 font-semibold">
-                    {user?.name || 'Operator'}
+                    {user?.name || 'Student'}
                   </div>
                 </div>
 
                 <div>
                   <label className="text-[11px] font-semibold text-slate-400">Email Address</label>
                   <div className="mt-1 p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-200 font-mono">
-                    {user?.email || 'operator@agentflow.ai'}
+                    {user?.email || 'student@college.edu'}
                   </div>
                 </div>
 
                 <div>
                   <label className="text-[11px] font-semibold text-slate-400">Assigned Role</label>
                   <div className="mt-1 flex items-center gap-2">
-                    <span className="px-2.5 py-1 rounded-lg bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 font-bold uppercase text-[10px]">
-                      {user?.role || 'OPERATOR'}
+                    <span className="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-bold uppercase text-[10px]">
+                      {user?.role || 'STUDENT'}
                     </span>
-                    <span className="text-[11px] text-slate-500">Full workflow editing and execution permissions</span>
+                    <span className="text-[11px] text-slate-500">Complaint submission and tracking permissions</span>
                   </div>
                 </div>
               </div>
@@ -137,7 +137,7 @@ export default function SettingsPage() {
                 <div className="flex items-center gap-2">
                   <Cpu className="w-4 h-4 text-cyan-400" />
                   <h2 className="text-xs font-bold uppercase tracking-wider text-slate-200">
-                    Backend Orchestrator Health
+                    Campus Support Health
                   </h2>
                 </div>
 
@@ -152,28 +152,28 @@ export default function SettingsPage() {
               {healthStatus ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                   <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                    <div className="text-[10px] text-slate-500 uppercase font-semibold">Multi-Agent Engine</div>
+                    <div className="text-[10px] text-slate-500 uppercase font-semibold">Complaint Queue</div>
                     <div className="font-bold text-emerald-400 mt-1 flex items-center gap-1.5">
-                      <CheckCircle2 className="w-3.5 h-3.5" /> Active (5 Agents)
+                      <CheckCircle2 className="w-3.5 h-3.5" /> Active
                     </div>
                   </div>
 
                   <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                    <div className="text-[10px] text-slate-500 uppercase font-semibold">LangGraph Substrate</div>
+                    <div className="text-[10px] text-slate-500 uppercase font-semibold">Assignment System</div>
                     <div className="font-bold text-indigo-400 mt-1 flex items-center gap-1.5">
                       <CheckCircle2 className="w-3.5 h-3.5" /> Available
                     </div>
                   </div>
 
                   <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                    <div className="text-[10px] text-slate-500 uppercase font-semibold">Queue Subsystem</div>
+                    <div className="text-[10px] text-slate-500 uppercase font-semibold">Ticket Routing</div>
                     <div className="font-bold text-cyan-400 mt-1 flex items-center gap-1.5">
-                      <CheckCircle2 className="w-3.5 h-3.5" /> BullMQ / In-Memory
+                      <CheckCircle2 className="w-3.5 h-3.5" /> Active
                     </div>
                   </div>
 
                   <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                    <div className="text-[10px] text-slate-500 uppercase font-semibold">Socket Streaming</div>
+                    <div className="text-[10px] text-slate-500 uppercase font-semibold">Status Updates</div>
                     <div className="font-bold text-pink-400 mt-1 flex items-center gap-1.5">
                       <CheckCircle2 className="w-3.5 h-3.5" /> Connected
                     </div>

@@ -43,15 +43,15 @@ export default function RegisterPage() {
         {/* Header */}
         <div className="text-center space-y-2">
           <Link href="/" className="inline-flex items-center gap-2 group mb-2">
-            <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-400 p-[1px] shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform">
+            <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-emerald-600 via-teal-500 to-cyan-400 p-[1px] shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform">
               <div className="w-full h-full bg-slate-950 rounded-[15px] flex items-center justify-center">
-                <Cpu className="w-5 h-5 text-indigo-400" />
+                <Cpu className="w-5 h-5 text-emerald-400" />
               </div>
             </div>
-            <span className="font-extrabold text-xl tracking-tight text-white">Agentflow_AI</span>
+            <span className="font-extrabold text-xl tracking-tight text-white">College Complaint Desk</span>
           </Link>
-          <h2 className="text-2xl font-bold text-white tracking-tight">Create Operator Account</h2>
-          <p className="text-xs text-slate-400">Join the multi-agent AI operations automation console.</p>
+          <h2 className="text-2xl font-bold text-white tracking-tight">Create Campus Account</h2>
+          <p className="text-xs text-slate-400">Register as a student, admin, or department coordinator.</p>
         </div>
 
         {/* Card */}
@@ -64,14 +64,14 @@ export default function RegisterPage() {
 
           <form onSubmit={handleSubmit} className="space-y-4 text-xs">
             <div className="space-y-1.5">
-              <label className="text-[11px] font-semibold text-slate-300">Operator Full Name</label>
+              <label className="text-[11px] font-semibold text-slate-300">Full Name</label>
               <div className="relative">
                 <User className="w-4 h-4 absolute left-3 top-3 text-slate-500" />
                 <input
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Alex Mercer"
+                  placeholder="Aisha Sharma"
                   className="w-full pl-9 pr-3 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-indigo-500 text-xs"
                 />
               </div>
@@ -85,7 +85,7 @@ export default function RegisterPage() {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="operator@agentflow.ai"
+                  placeholder="student@college.edu"
                   className="w-full pl-9 pr-3 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-indigo-500 text-xs"
                 />
               </div>
@@ -106,21 +106,22 @@ export default function RegisterPage() {
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-[11px] font-semibold text-slate-300">Operator Role</label>
+              <label className="text-[11px] font-semibold text-slate-300">User Role</label>
               <select
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
-                className="w-full px-3 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-slate-100 focus:outline-none focus:border-indigo-500 text-xs"
+                className="w-full px-3 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-slate-100 focus:outline-none focus:border-emerald-500 text-xs"
               >
-                <option value="operator">Operator (Workflow Designer & Runner)</option>
-                <option value="admin">Administrator (Full System & Security Control)</option>
+                <option value="student">Student (Submit & track complaints)</option>
+                <option value="admin">Admin (Manage all complaints)</option>
+                <option value="department">Department Head (Resolve assigned issues)</option>
               </select>
             </div>
 
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-3 rounded-xl text-xs font-bold bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white shadow-lg shadow-indigo-600/30 transition-all border border-indigo-400/20 active:scale-95 flex items-center justify-center gap-2 disabled:opacity-50 mt-2"
+              className="w-full py-3 rounded-xl text-xs font-bold bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-lg shadow-emerald-600/30 transition-all border border-emerald-400/20 active:scale-95 flex items-center justify-center gap-2 disabled:opacity-50 mt-2"
             >
               {isLoading ? (
                 <>
@@ -128,7 +129,7 @@ export default function RegisterPage() {
                 </>
               ) : (
                 <>
-                  Complete Registration <ArrowRight className="w-4 h-4" />
+                  Create Account <ArrowRight className="w-4 h-4" />
                 </>
               )}
             </button>

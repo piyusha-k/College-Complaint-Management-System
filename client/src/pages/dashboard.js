@@ -126,10 +126,10 @@ export default function DashboardPage() {
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
               <h1 className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight flex items-center gap-2.5">
-                Operator Mission Console
+                Campus Complaint Dashboard
               </h1>
               <p className="text-xs text-slate-400 mt-1">
-                Autonomous workflow orchestrator, live agent execution telemetry, and status monitors.
+                Track student issues, assign departments, review priorities, and monitor resolution progress.
               </p>
             </div>
 
@@ -145,9 +145,9 @@ export default function DashboardPage() {
 
               <Link
                 href="/workflows/builder"
-                className="px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white shadow-lg shadow-indigo-600/30 transition-all border border-indigo-400/20 active:scale-95 flex items-center gap-2"
+                className="px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-lg shadow-emerald-600/30 transition-all border border-emerald-400/20 active:scale-95 flex items-center gap-2"
               >
-                <Sparkles className="w-3.5 h-3.5" /> Prompt-to-Workflow
+                <Sparkles className="w-3.5 h-3.5" /> New Complaint
               </Link>
             </div>
           </div>
@@ -163,14 +163,14 @@ export default function DashboardPage() {
                 <div className="flex items-center gap-2">
                   <Play className="w-4 h-4 text-indigo-400" />
                   <h2 className="text-sm font-bold uppercase tracking-wider text-slate-200">
-                    Recent Workflow Executions
+                    Recent Complaints
                   </h2>
                 </div>
                 <Link
                   href="/executions"
                   className="text-xs text-indigo-400 hover:text-indigo-300 font-medium flex items-center gap-1"
                 >
-                  View All Runs <ArrowRight className="w-3.5 h-3.5" />
+                  View All Complaints <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
 
@@ -178,12 +178,12 @@ export default function DashboardPage() {
                 {!data?.recentExecutions || data.recentExecutions.length === 0 ? (
                   <div className="p-12 text-center text-slate-500 space-y-3">
                     <Activity className="w-8 h-8 mx-auto opacity-40 text-slate-400" />
-                    <p className="text-xs">No execution runs recorded yet.</p>
+                    <p className="text-xs">No complaints recorded yet.</p>
                     <Link
                       href="/workflows"
-                      className="inline-block px-3 py-1.5 rounded-lg bg-indigo-600/20 text-indigo-300 border border-indigo-500/30 text-xs font-medium"
+                      className="inline-block px-3 py-1.5 rounded-lg bg-emerald-600/20 text-emerald-300 border border-emerald-500/30 text-xs font-medium"
                     >
-                      Run a Workflow &rarr;
+                      Submit a Complaint &rarr;
                     </Link>
                   </div>
                 ) : (
@@ -237,7 +237,7 @@ export default function DashboardPage() {
                 <div className="flex items-center gap-2">
                   <Cpu className="w-4 h-4 text-pink-400" />
                   <h2 className="text-sm font-bold uppercase tracking-wider text-slate-200">
-                    Live Agent Telemetry
+                    Complaint Activity Feed
                   </h2>
                 </div>
                 <span className="text-[10px] text-emerald-400 font-mono flex items-center gap-1">
@@ -248,7 +248,7 @@ export default function DashboardPage() {
               <div className="rounded-2xl bg-slate-900/60 border border-slate-800 p-4 space-y-3 shadow-xl max-h-[460px] overflow-y-auto">
                 {!data?.activityFeed || data.activityFeed.length === 0 ? (
                   <div className="p-8 text-center text-slate-500 text-xs">
-                    No active agent events streaming. Run an automation to observe the 5-agent chain in action.
+                    No active complaint updates yet. Submit a student issue to start tracking resolution progress.
                   </div>
                 ) : (
                   data.activityFeed.map((act) => (

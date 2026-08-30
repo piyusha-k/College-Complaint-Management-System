@@ -7,19 +7,17 @@ import { getSocket, joinUserRoom } from '../../services/socket';
 import NotificationDrawer from './NotificationDrawer';
 import {
   LayoutDashboard,
-  GitFork,
-  Sparkles,
-  PlaySquare,
-  Plug,
+  ClipboardList,
+  MessageSquareWarning,
+  BarChart3,
   Settings,
   Bell,
   LogOut,
   ChevronRight,
-  Zap,
+  CheckCircle2,
   Activity,
-  Cpu,
-  Layers,
-  Shield,
+  BadgeCheck,
+  Building2,
 } from 'lucide-react';
 
 export default function AppShell({ children, breadcrumbs = [] }) {
@@ -48,10 +46,10 @@ export default function AppShell({ children, breadcrumbs = [] }) {
 
   const navItems = [
     { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
-    { name: 'Workflows', href: '/workflows', icon: GitFork },
-    { name: 'AI Builder', href: '/workflows/builder', icon: Sparkles, badge: 'AI Studio' },
-    { name: 'Executions', href: '/executions', icon: PlaySquare },
-    { name: 'Integrations', href: '/integrations', icon: Plug },
+    { name: 'Complaints', href: '/workflows', icon: ClipboardList },
+    { name: 'New Complaint', href: '/workflows/builder', icon: MessageSquareWarning, badge: 'New' },
+    { name: 'Reports', href: '/executions', icon: BarChart3 },
+    { name: 'Departments', href: '/integrations', icon: Building2 },
     { name: 'Settings', href: '/settings', icon: Settings },
   ];
 
@@ -62,18 +60,18 @@ export default function AppShell({ children, breadcrumbs = [] }) {
         {/* Left: Brand & Breadcrumbs */}
         <div className="flex items-center gap-4">
           <Link href="/dashboard" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-400 p-[1px] shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-600 via-teal-500 to-cyan-400 p-[1px] shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform">
               <div className="w-full h-full bg-slate-950 rounded-[11px] flex items-center justify-center">
-                <Cpu className="w-5 h-5 text-indigo-400" />
+                <BadgeCheck className="w-5 h-5 text-emerald-400" />
               </div>
             </div>
             <div className="flex flex-col">
               <div className="flex items-center gap-1.5">
                 <span className="font-bold text-base tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-100 to-slate-400">
-                  Agentflow
+                  CollegeDesk
                 </span>
-                <span className="text-[10px] font-semibold tracking-wider uppercase px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
-                  AI Ops
+                <span className="text-[10px] font-semibold tracking-wider uppercase px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                  Complaints
                 </span>
               </div>
             </div>
@@ -105,15 +103,15 @@ export default function AppShell({ children, breadcrumbs = [] }) {
         <div className="flex items-center gap-3">
           <Link
             href="/workflows/builder"
-            className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white shadow-md shadow-indigo-600/20 transition-all border border-indigo-400/20 active:scale-95"
+            className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-md shadow-emerald-600/20 transition-all border border-emerald-400/20 active:scale-95"
           >
-            <Sparkles className="w-3.5 h-3.5" /> Prompt-to-Workflow
+            <MessageSquareWarning className="w-3.5 h-3.5" /> New Complaint
           </Link>
 
           {/* Real-time Status Indicator */}
           <div className="hidden md:flex items-center gap-2 px-2.5 py-1 rounded-full bg-slate-900/80 border border-slate-800 text-[11px] text-slate-400">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>Orchestrator: Active</span>
+            <span>Support Desk Active</span>
           </div>
 
           {/* Notification Bell */}
@@ -161,7 +159,7 @@ export default function AppShell({ children, breadcrumbs = [] }) {
         <aside className="w-56 shrink-0 border-r border-slate-800/80 bg-slate-950/40 backdrop-blur-sm hidden md:flex flex-col justify-between p-3">
           <div className="space-y-1">
             <div className="px-3 py-2 text-[10px] font-semibold text-slate-500 uppercase tracking-wider">
-              Operations Center
+              Campus Desk
             </div>
             {navItems.map((item) => {
               const Icon = item.icon;
@@ -193,29 +191,29 @@ export default function AppShell({ children, breadcrumbs = [] }) {
           {/* 5-Agent Architecture Legend in sidebar */}
           <div className="p-3 rounded-xl bg-slate-900/40 border border-slate-800/60 text-[11px] space-y-2">
             <div className="text-[10px] font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-              <Activity className="w-3.5 h-3.5 text-indigo-400" />
-              Agentic Chain
+              <Activity className="w-3.5 h-3.5 text-emerald-400" />
+              Complaint Flow
             </div>
             <div className="space-y-1.5 text-[10px] text-slate-400">
               <div className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-violet-400"></span>
-                <span>Planner Agent</span>
+                <span>Submitted</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
-                <span>Execution Agent</span>
+                <span>Under Review</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-                <span>Validation Agent</span>
+                <span>Assigned</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-amber-400"></span>
-                <span>Recovery Agent</span>
+                <span>In Progress</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-pink-400"></span>
-                <span>Monitoring Agent</span>
+                <span>Resolved</span>
               </div>
             </div>
           </div>

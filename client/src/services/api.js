@@ -12,7 +12,7 @@ const api = axios.create({
 api.interceptors.request.use(
   (config) => {
     if (typeof window !== 'undefined') {
-      const token = localStorage.getItem('agentflow_token');
+      const token = localStorage.getItem('collegecomplaint_token') || localStorage.getItem('agentflow_token');
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
       }
@@ -29,6 +29,8 @@ api.interceptors.response.use(
     if (error.response && error.response.status === 401) {
       if (typeof window !== 'undefined' && !window.location.pathname.startsWith('/login') && !window.location.pathname.startsWith('/register')) {
         // Only clear if on protected page
+        localStorage.removeItem('collegecomplaint_token');
+        localStorage.removeItem('collegecomplaint_user');
         localStorage.removeItem('agentflow_token');
         localStorage.removeItem('agentflow_user');
       }

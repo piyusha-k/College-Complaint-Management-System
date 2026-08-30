@@ -10,14 +10,16 @@ export const useAuthStore = create((set, get) => ({
 
   initAuth: () => {
     if (typeof window !== 'undefined') {
-      const token = localStorage.getItem('agentflow_token');
-      const userStr = localStorage.getItem('agentflow_user');
+      const token = localStorage.getItem('collegecomplaint_token') || localStorage.getItem('agentflow_token');
+      const userStr = localStorage.getItem('collegecomplaint_user') || localStorage.getItem('agentflow_user');
       if (token && userStr) {
         try {
           const user = JSON.parse(userStr);
           set({ token, user, isAuthenticated: true, isLoading: false });
           return;
         } catch (e) {
+          localStorage.removeItem('collegecomplaint_token');
+          localStorage.removeItem('collegecomplaint_user');
           localStorage.removeItem('agentflow_token');
           localStorage.removeItem('agentflow_user');
         }
@@ -53,6 +55,8 @@ export const useAuthStore = create((set, get) => ({
       const { token, user } = res.data.data;
 
       if (typeof window !== 'undefined') {
+        localStorage.setItem('collegecomplaint_token', token);
+        localStorage.setItem('collegecomplaint_user', JSON.stringify(user));
         localStorage.setItem('agentflow_token', token);
         localStorage.setItem('agentflow_user', JSON.stringify(user));
       }
@@ -71,6 +75,7 @@ export const useAuthStore = create((set, get) => ({
       const res = await api.get('/auth/me');
       const user = res.data.data.user;
       if (typeof window !== 'undefined') {
+        localStorage.setItem('collegecomplaint_user', JSON.stringify(user));
         localStorage.setItem('agentflow_user', JSON.stringify(user));
       }
       set({ user });
@@ -82,6 +87,8 @@ export const useAuthStore = create((set, get) => ({
 
   logout: () => {
     if (typeof window !== 'undefined') {
+      localStorage.removeItem('collegecomplaint_token');
+      localStorage.removeItem('collegecomplaint_user');
       localStorage.removeItem('agentflow_token');
       localStorage.removeItem('agentflow_user');
     }

@@ -109,10 +109,10 @@ export default function ExecutionsListPage() {
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
               <h1 className="text-2xl font-extrabold text-white tracking-tight flex items-center gap-2.5">
-                <PlaySquare className="w-6 h-6 text-indigo-400" /> Execution Audit Runs
+                <PlaySquare className="w-6 h-6 text-emerald-400" /> Complaint Timeline
               </h1>
               <p className="text-xs text-slate-400 mt-1">
-                Complete timeline audit of multi-agent operations with live Socket.IO status updates.
+                Track complaint status updates, assignments, and resolution history across campus teams.
               </p>
             </div>
 
@@ -141,16 +141,16 @@ export default function ExecutionsListPage() {
                 onChange={(e) => setStatusFilter(e.target.value)}
                 className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-200 focus:outline-none focus:border-indigo-500"
               >
-                <option value="all">All Executions</option>
-                <option value="COMPLETED">Completed</option>
-                <option value="RUNNING">Running</option>
-                <option value="FAILED">Failed</option>
-                <option value="PAUSED">Paused</option>
+                <option value="all">All Complaints</option>
+                <option value="COMPLETED">Resolved</option>
+                <option value="RUNNING">In Progress</option>
+                <option value="FAILED">Escalated</option>
+                <option value="PAUSED">Pending</option>
                 <option value="CANCELLED">Cancelled</option>
               </select>
             </div>
 
-            <span className="text-xs text-slate-500 font-mono">{executions.length} Runs Recorded</span>
+            <span className="text-xs text-slate-500 font-mono">{executions.length} Complaints Logged</span>
           </div>
 
           {/* Table */}
@@ -164,7 +164,7 @@ export default function ExecutionsListPage() {
               <div className="p-16 text-center text-slate-500 space-y-3">
                 <Activity className="w-10 h-10 mx-auto opacity-30 text-slate-400" />
                 <h3 className="text-sm font-bold text-slate-300">No executions recorded</h3>
-                <p className="text-xs text-slate-500">Run an automation from the Workflows tab to begin auditing.</p>
+                <p className="text-xs text-slate-500">Submit a complaint to start tracking resolution history.</p>
               </div>
             ) : (
               <div className="overflow-x-auto">
@@ -187,7 +187,7 @@ export default function ExecutionsListPage() {
                           {exec._id.slice(0, 8)}...
                         </td>
                         <td className="py-4 px-4 font-semibold text-slate-200">
-                          {exec.workflowSnapshot?.name || exec.workflowId?.name || 'Automation'}
+                          {exec.workflowSnapshot?.name || exec.workflowId?.name || 'Complaint' }
                         </td>
                         <td className="py-4 px-4">{getStatusBadge(exec.status)}</td>
                         <td className="py-4 px-4 font-mono text-slate-300">

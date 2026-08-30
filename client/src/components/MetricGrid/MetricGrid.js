@@ -4,9 +4,9 @@ import { GitFork, Activity, CheckCircle2, Clock, AlertTriangle, Zap } from 'luci
 export default function MetricGrid({ metrics = {} }) {
   const cards = [
     {
-      title: 'Active Workflows',
+      title: 'Open Complaints',
       value: metrics.activeWorkflows ?? 0,
-      subValue: `of ${metrics.totalWorkflows ?? 0} total workflows`,
+      subValue: `of ${metrics.totalWorkflows ?? 0} total complaints`,
       icon: GitFork,
       color: 'from-violet-500/20 to-purple-500/5',
       borderColor: 'border-violet-500/30',
@@ -15,20 +15,20 @@ export default function MetricGrid({ metrics = {} }) {
       badgeColor: 'bg-violet-500/20 text-violet-300 border-violet-500/30',
     },
     {
-      title: 'Total Executions',
+      title: 'Total Reports',
       value: metrics.totalExecutions ?? 0,
-      subValue: `${metrics.runningExecutions ?? 0} in flight now`,
+      subValue: `${metrics.runningExecutions ?? 0} currently active`,
       icon: Activity,
       color: 'from-cyan-500/20 to-blue-500/5',
       borderColor: 'border-cyan-500/30',
       iconColor: 'text-cyan-400',
-      badge: `${metrics.runningExecutions ?? 0} Running`,
+      badge: `${metrics.runningExecutions ?? 0} Active`,
       badgeColor: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30',
     },
     {
-      title: 'Success Rate',
+      title: 'Resolved Rate',
       value: `${metrics.successRate ?? 100}%`,
-      subValue: `${metrics.completedExecutions ?? 0} successful runs`,
+      subValue: `${metrics.completedExecutions ?? 0} resolved complaints`,
       icon: CheckCircle2,
       color: 'from-emerald-500/20 to-teal-500/5',
       borderColor: 'border-emerald-500/30',
@@ -37,14 +37,14 @@ export default function MetricGrid({ metrics = {} }) {
       badgeColor: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30',
     },
     {
-      title: 'Avg Execution Time',
+      title: 'Avg Resolution Time',
       value: `${((metrics.avgDurationMs ?? 0) / 1000).toFixed(2)}s`,
-      subValue: `${metrics.failedExecutions ?? 0} failed / recovered`,
+      subValue: `${metrics.failedExecutions ?? 0} escalated or pending`,
       icon: Clock,
       color: 'from-amber-500/20 to-orange-500/5',
       borderColor: 'border-amber-500/30',
       iconColor: 'text-amber-400',
-      badge: 'Multi-Agent DAG',
+      badge: 'Campus Support',
       badgeColor: 'bg-amber-500/20 text-amber-300 border-amber-500/30',
     },
   ];
@@ -74,7 +74,7 @@ export default function MetricGrid({ metrics = {} }) {
               <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full border ${card.badgeColor}`}>
                 {card.badge}
               </span>
-              <span className="text-[10px] text-slate-500">Autonomous Chain</span>
+              <span className="text-[10px] text-slate-500">Complaint Flow</span>
             </div>
           </div>
         );

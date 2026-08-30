@@ -14,7 +14,7 @@ export const getSocket = () => {
     });
 
     socket.on('connect', () => {
-      console.log('[Socket] Connected to Agentflow real-time event bus:', socket.id);
+      console.log('[Socket] Connected to college complaint live updates:', socket.id);
     });
 
     socket.on('disconnect', () => {
